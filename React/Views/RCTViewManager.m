@@ -141,13 +141,13 @@ RCT_CUSTOM_VIEW_PROPERTY(transformMatrix, CATransform3D, RCTView)
 }
 RCT_CUSTOM_VIEW_PROPERTY(bringSubviewToFront, BOOL, RCTView)
 {
-  if(view.superview != nil && [RCTConvert BOOL:json]){
+  if (view.superview != nil && [RCTConvert BOOL:json]) {
     [view.superview bringSubviewToFront:view];
   }
 }
 RCT_CUSTOM_VIEW_PROPERTY(sendSubviewToBack, BOOL, RCTView)
 {
-  if(view.superview != nil && [RCTConvert BOOL:json]){
+  if (view.superview != nil && [RCTConvert BOOL:json]) {
     [view.superview sendSubviewToBack:view];
   }
 }
