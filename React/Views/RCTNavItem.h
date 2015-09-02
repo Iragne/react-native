@@ -9,9 +9,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class RCTNavItem;
+
+@protocol RCTNavItemListener <NSObject>
+
+-(void)update:(RCTNavItem *)itemNav;
+
+@end
+
+
 @interface RCTNavItem : UIView
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) UIImage *titleIcon;
 @property (nonatomic, strong) UIImage *leftButtonIcon;
 @property (nonatomic, copy) NSString *leftButtonTitle;
 @property (nonatomic, strong) UIImage *rightButtonIcon;
@@ -19,6 +29,7 @@
 @property (nonatomic, strong) UIImage *backButtonIcon;
 @property (nonatomic, copy) NSString *backButtonTitle;
 @property (nonatomic, assign) BOOL navigationBarHidden;
+@property (nonatomic, assign) BOOL navigationBarTransparent;
 @property (nonatomic, assign) BOOL shadowHidden;
 @property (nonatomic, strong) UIColor *tintColor;
 @property (nonatomic, strong) UIColor *barTintColor;
@@ -28,5 +39,7 @@
 @property (nonatomic, readonly) UIBarButtonItem *backButtonItem;
 @property (nonatomic, readonly) UIBarButtonItem *leftButtonItem;
 @property (nonatomic, readonly) UIBarButtonItem *rightButtonItem;
+
+@property (nonatomic, weak) id<RCTNavItemListener> delegate;
 
 @end
