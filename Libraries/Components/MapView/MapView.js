@@ -74,7 +74,7 @@ var MapView = React.createClass({
      * If `true` the app will ask for the user's location and focus on it.
      * Default value is `false`.
      *
-     * **NOTE**: You need to add NSLocationWhenInUseUsageDescription key in
+     * **NOTE**: You need to add NSLocationWhenInUseUsageDescription key (as a string to provide description in iOS settings) in
      * Info.plist to enable geolocation, otherwise it is going
      * to *fail silently*!
      */
