@@ -139,6 +139,18 @@ RCT_CUSTOM_VIEW_PROPERTY(transformMatrix, CATransform3D, RCTView)
   // TODO: Improve this by enabling edge antialiasing only for transforms with rotation or skewing
   view.layer.allowsEdgeAntialiasing = !CATransform3DIsIdentity(view.layer.transform);
 }
+RCT_CUSTOM_VIEW_PROPERTY(bringSubviewToFront, BOOL, RCTView)
+{
+  if(view.superview != nil && [RCTConvert BOOL:json]){
+    [view.superview bringSubviewToFront:view];
+  }
+}
+RCT_CUSTOM_VIEW_PROPERTY(sendSubviewToBack, BOOL, RCTView)
+{
+  if(view.superview != nil && [RCTConvert BOOL:json]){
+    [view.superview sendSubviewToBack:view];
+  }
+}
 RCT_CUSTOM_VIEW_PROPERTY(pointerEvents, RCTPointerEvents, RCTView)
 {
   if ([view respondsToSelector:@selector(setPointerEvents:)]) {
